@@ -8,13 +8,20 @@
     "build": "hardhat compile && tsc",
     "test": "hardhat test",
     "test:coverage": "hardhat coverage",
+    "test:gas": "REPORT_GAS=true hardhat test",
     "deploy:testnet": "hardhat run scripts/deploy.ts --network fuji",
     "deploy:mainnet": "hardhat run scripts/deploy.ts --network avalanche",
     "verify": "hardhat verify --network avalanche",
-    "lint": "eslint . --ext .ts,.js",
+    "lint": "eslint . --ext .ts,.js,.sol",
+    "lint:fix": "eslint . --ext .ts,.js,.sol --fix",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
     "start:node": "hardhat node",
-    "clean": "hardhat clean && rm -rf dist"
+    "clean": "hardhat clean && rm -rf dist && rm -rf artifacts && rm -rf cache",
+    "prepublishOnly": "npm run clean && npm run build && npm run test",
+    "dev": "hardhat node",
+    "compile": "hardhat compile"
   },
   "keywords": [
     "avalanche",

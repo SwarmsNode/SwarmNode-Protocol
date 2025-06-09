@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  swarmnode:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - AVALANCHE_RPC_URL=${AVALANCHE_RPC_URL:-https://api.avax-test.network/ext/bc/C/rpc}
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - swarmnode-network
+
+  hardhat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    command: npx hardhat node
+    ports:
+      - "8545:8545"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - swarmnode-network
+
+networks:
+  swarmnode-network:
+    driver: bridge
+
+volumes:
+  node_modules:

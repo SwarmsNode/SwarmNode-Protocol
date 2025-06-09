@@ -1,63 +1,59 @@
 #!/bin/bash
 
-# Script de nettoyage final avant publication GitHub
-# Supprime tous les fichiers/dossiers non essentiels
+# SwarmNode Protocol - Production Cleanup Script
+# Removes development artifacts and prepares for deployment
 
-echo "🧹 Nettoyage final du projet SwarmNode pour GitHub..."
+set -e
 
-# Couleurs
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
+# Configuration
 RED='\033[0;31m'
+GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
 NC='\033[0m'
 
-print_info() {
-    echo -e "${BLUE}📝 $1${NC}"
+log_info() {
+    echo -e "${BLUE}[INFO]${NC} $1"
 }
 
-print_success() {
-    echo -e "${GREEN}✅ $1${NC}"
+log_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
 }
 
-print_warning() {
-    echo -e "${YELLOW}⚠️  $1${NC}"
+log_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
-print_error() {
-    echo -e "${RED}❌ $1${NC}"
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
 }
 
-# Se déplacer dans le répertoire racine du projet
+# Navigate to project root
 cd "$(dirname "$0")/.."
 
-print_info "Suppression des fichiers de cache et temporaires..."
+log_info "Starting production cleanup for SwarmNode Protocol"
 
-# Supprimer les node_modules et caches
+# Clean temporary files and caches
+log_info "Removing temporary files and caches"
 find . -name "node_modules" -type d -exec rm -rf {} + 2>/dev/null || true
 find . -name ".next" -type d -exec rm -rf {} + 2>/dev/null || true
 find . -name "dist" -type d -exec rm -rf {} + 2>/dev/null || true
 find . -name "build" -type d -exec rm -rf {} + 2>/dev/null || true
 find . -name ".cache" -type d -exec rm -rf {} + 2>/dev/null || true
-
-# Supprimer les fichiers de log
 find . -name "*.log" -type f -delete 2>/dev/null || true
 find . -name "npm-debug.log*" -type f -delete 2>/dev/null || true
 find . -name "yarn-debug.log*" -type f -delete 2>/dev/null || true
 find . -name "yarn-error.log*" -type f -delete 2>/dev/null || true
-
-# Supprimer les fichiers temporaires
 find . -name "*.tmp" -type f -delete 2>/dev/null || true
 find . -name "*.temp" -type f -delete 2>/dev/null || true
 find . -name ".DS_Store" -type f -delete 2>/dev/null || true
 find . -name "Thumbs.db" -type f -delete 2>/dev/null || true
 
-print_success "Cache et fichiers temporaires supprimés"
+log_success "Temporary files cleaned"
 
-print_info "Suppression des dossiers non essentiels (s'ils existent encore)..."
-
-# Liste des dossiers à supprimer définitivement
-FOLDERS_TO_REMOVE=(
+# Remove legacy development directories
+log_info "Removing legacy development directories"
+LEGACY_DIRS=(
     "benchmarks"
     "e2e" 
     "monitoring"
@@ -66,18 +62,19 @@ FOLDERS_TO_REMOVE=(
     "mobile"
     "database"
     "community"
+    "website"
+    "frontend"
 )
 
-for folder in "${FOLDERS_TO_REMOVE[@]}"; do
-    if [ -d "$folder" ]; then
-        rm -rf "$folder"
-        print_warning "Supprimé: $folder/"
+for dir in "${LEGACY_DIRS[@]}"; do
+    if [ -d "$dir" ]; then
+        rm -rf "$dir"
+        log_warning "Removed legacy directory: $dir/"
     fi
 done
 
-print_info "Vérification des fichiers de configuration sensibles..."
-
-# Supprimer les fichiers de configuration sensibles
+# Remove sensitive configuration files
+log_info "Removing sensitive configuration files"
 SENSITIVE_FILES=(
     ".env.local"
     ".env.production"
@@ -89,51 +86,53 @@ SENSITIVE_FILES=(
 for file in "${SENSITIVE_FILES[@]}"; do
     if [ -f "$file" ]; then
         rm "$file"
-        print_warning "Supprimé fichier sensible: $file"
+        log_warning "Removed sensitive file: $file"
     fi
 done
 
-print_info "Validation de la structure finale..."
-
-# Vérifier que les dossiers essentiels existent
-ESSENTIAL_FOLDERS=(
+# Validate essential project structure
+log_info "Validating project structure"
+ESSENTIAL_DIRS=(
     "contracts"
     "src" 
-    "website"
-    "frontend"
     "scripts"
     "docs"
     "examples"
+    "test"
+    "deployments"
 )
 
-for folder in "${ESSENTIAL_FOLDERS[@]}"; do
-    if [ ! -d "$folder" ]; then
-        print_error "ERREUR: Dossier essentiel manquant: $folder/"
+for dir in "${ESSENTIAL_DIRS[@]}"; do
+    if [ ! -d "$dir" ]; then
+        log_error "Missing essential directory: $dir/"
         exit 1
     fi
 done
 
-# Vérifier que les fichiers essentiels existent
 ESSENTIAL_FILES=(
     "README.md"
     "package.json"
     "LICENSE"
     "CONTRIBUTING.md"
-    "scripts/dev.sh"
-    "scripts/init-git.sh"
+    "SECURITY.md"
+    "CHANGELOG.md"
+    "hardhat.config.ts"
+    "tsconfig.json"
+    "Dockerfile"
+    "docker-compose.yml"
 )
 
 for file in "${ESSENTIAL_FILES[@]}"; do
     if [ ! -f "$file" ]; then
-        print_error "ERREUR: Fichier essentiel manquant: $file"
+        log_error "Missing essential file: $file"
         exit 1
     fi
 done
 
-print_success "Structure du projet validée"
+log_success "Project structure validated"
 
-print_info "Génération du fichier .gitignore final..."
-
+# Generate production .gitignore
+log_info "Generating production .gitignore"
 cat > .gitignore << 'EOF'
 # Dependencies
 node_modules/
@@ -156,7 +155,7 @@ pids
 coverage/
 *.lcov
 
-# nyc test coverage
+# Test coverage
 .nyc_output
 
 # Logs
@@ -179,12 +178,6 @@ lerna-debug.log*
 .eslintcache
 .parcel-cache
 
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
 # Optional REPL history
 .node_repl_history
 
@@ -193,13 +186,6 @@ lerna-debug.log*
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
 
 # Next.js build output
 .next
@@ -211,9 +197,6 @@ dist
 # Vite build output
 dist-ssr
 *.local
-
-# Rollup build output
-dist/
 
 # Serverless directories
 .serverless/
@@ -227,10 +210,10 @@ dist/
 # TernJS port file
 .tern-port
 
-# Stores VSCode versions used for testing VSCode extensions
+# VS Code test extensions
 .vscode-test
 
-# IDE
+# IDE files
 .vscode/
 .idea/
 *.swp
@@ -246,29 +229,27 @@ dist/
 ehthumbs.db
 Thumbs.db
 
-# Blockchain & Contracts
+# Blockchain & Smart Contracts
 artifacts/
 cache/
 typechain/
 typechain-types/
 
 # Hardhat files
-artifacts
-cache
 coverage
 coverage.json
-typechain
-typechain-types
 
-# Solidity
+# Solidity compilation artifacts
 /contracts/build/
 
-# Avalanche
+# Avalanche CLI
 avalanche-cli/
+
+# Local development
+.env.development
 EOF
 
-print_success "Fichier .gitignore créé"
+log_success "Production .gitignore created"
 
-print_success "🎉 Nettoyage final terminé avec succès!"
-print_info "Le projet est maintenant prêt pour la publication sur GitHub"
-print_info "Exécutez 'scripts/init-git.sh' pour initialiser le dépôt Git"
+log_success "Production cleanup completed successfully"
+log_info "Project is ready for production deployment"
