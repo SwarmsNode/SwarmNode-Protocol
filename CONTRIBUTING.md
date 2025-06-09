@@ -22,7 +22,7 @@ Thank you for your interest in contributing to SwarmNode! This guide will help y
 6. **Push** to your fork
 7. **Create** a Pull Request
 
-### 3. Code Standards
+### 3. Standarts code
 
 #### Naming Conventions
 - Variables: `camelCase`
@@ -33,7 +33,7 @@ Thank you for your interest in contributing to SwarmNode! This guide will help y
 
 #### TypeScript/JavaScript Style
 ```typescript
-// ✅ Bon
+// ✅ good
 const agentConfig: AgentConfig = {
   name: 'MyAgent',
   type: AgentType.AUTONOMOUS,
@@ -62,12 +62,12 @@ contract AgentRegistry {
 
 ### 4. Tests
 
-#### Avant de soumettre
+#### before pushing
 ```bash
-# Tests unitaires
+# tests
 npm test
 
-# Tests d'intégration
+# integration
 npm run test:integration
 
 # Linting
@@ -112,8 +112,8 @@ Types:
 node --version
 
 # Git configuré
-git config --global user.name "Votre Nom"
-git config --global user.email "votre@email.com"
+git config --global user.name "name"
+git config --global user.email "your@email.com"
 ```
 
 #### Setup Local
@@ -135,7 +135,7 @@ npm test
 ### 7. Community
 
 - 💬 [Discord](https://discord.gg/swarmnode) - Real-time discussion
-- 🐦 [Twitter](https://twitter.com/swarmnodeai) - News
+- 🐦 [Twitter](https://twitter.com/swarmsnodeavax) - News
 - 📧 Email: contribute@swarmnode.ai
 
 ## 🎉 Thank You!
