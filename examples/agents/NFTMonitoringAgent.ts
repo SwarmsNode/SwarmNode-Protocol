@@ -1,10 +1,10 @@
 import { Agent, Task, SwarmNodeSDK } from '../src/index';
 
 /**
- * NFT Monitoring Agent - Agent de surveillance et d'analyse du marché NFT
+ * NFT Monitoring Agent - NFT market surveillance and analysis agent
  * 
- * Cet agent surveille les collections NFT, analyse les prix et les tendances,
- * et peut automatiquement acheter/vendre selon des critères prédéfinis.
+ * This agent monitors NFT collections, analyzes prices and trends,
+ * and can automatically buy/sell according to predefined criteria.
  */
 export class NFTMonitoringAgent extends Agent {
   private watchedCollections: string[];
@@ -25,7 +25,7 @@ export class NFTMonitoringAgent extends Agent {
     this.rarityDatabase = new Map();
   }
 
-  
+
   /**
    * Ajoute une collection à surveiller
    */

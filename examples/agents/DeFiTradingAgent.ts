@@ -1,10 +1,10 @@
 import { Agent, Task, SwarmNodeSDK } from '../src/index';
 
 /**
- * DeFi Trading Agent - Agent de trading automatisé pour protocoles DeFi
+ * DeFi Trading Agent - Automated trading agent for DeFi protocols
  * 
- * Cet agent surveille les marchés DeFi, identifie les opportunités de trading
- * et exécute des transactions automatiquement selon des stratégies prédéfinies.
+ * This agent monitors DeFi markets, identifies trading opportunities
+ * and executes transactions automatically according to predefined strategies.
  */
 export class DeFiTradingAgent extends Agent {
   private tradingPairs: string[];
@@ -27,7 +27,7 @@ export class DeFiTradingAgent extends Agent {
     this.takeProfit = takeProfit;
   }
 
-  
+
   /**
    * Analyse les marchés DeFi pour identifier des opportunités
    */

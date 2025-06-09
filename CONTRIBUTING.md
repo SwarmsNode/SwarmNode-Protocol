@@ -1,37 +1,37 @@
-# 🤝 Guide de Contribution - SwarmNode Protocol
+# 🤝 Contributing Guide - SwarmNode Protocol
 
-Merci de votre intérêt pour contribuer à SwarmNode ! Ce guide vous aidera à démarrer.
+Thank you for your interest in contributing to SwarmNode! This guide will help you get started.
 
-## 🚀 Comment Contribuer
+## 🚀 How to Contribute
 
-### 1. Types de Contributions
+### 1. Types of Contributions
 
-- 🐛 **Rapports de bugs** - Signalez des problèmes
-- 💡 **Suggestions de fonctionnalités** - Proposez de nouvelles idées
-- 📝 **Documentation** - Améliorez la documentation
-- 💻 **Code** - Contribuez au développement
-- 🧪 **Tests** - Ajoutez ou améliorez les tests
+- 🐛 **Bug reports** - Report issues
+- 💡 **Feature suggestions** - Propose new ideas
+- 📝 **Documentation** - Improve documentation
+- 💻 **Code** - Contribute to development
+- 🧪 **Tests** - Add or improve tests
 
-### 2. Processus de Développement
+### 2. Development Process
 
-1. **Fork** le repository
-2. **Clone** votre fork localement
-3. **Créez** une branche pour votre fonctionnalité
-4. **Développez** et testez vos changements
-5. **Commit** avec des messages clairs
-6. **Push** vers votre fork
-7. **Créez** une Pull Request
+1. **Fork** the repository
+2. **Clone** your fork locally
+3. **Create** a branch for your feature
+4. **Develop** and test your changes
+5. **Commit** with clear messages
+6. **Push** to your fork
+7. **Create** a Pull Request
 
-### 3. Standards de Code
+### 3. Code Standards
 
-#### Conventions de Nommage
-- Variables : `camelCase`
-- Fonctions : `camelCase`
-- Classes : `PascalCase`
-- Constants : `UPPER_SNAKE_CASE`
-- Fichiers : `kebab-case`
+#### Naming Conventions
+- Variables: `camelCase`
+- Functions: `camelCase`
+- Classes: `PascalCase`
+- Constants: `UPPER_SNAKE_CASE`
+- Files: `kebab-case`
 
-#### Style TypeScript/JavaScript
+#### TypeScript/JavaScript Style
 ```typescript
 // ✅ Bon
 const agentConfig: AgentConfig = {
@@ -40,13 +40,13 @@ const agentConfig: AgentConfig = {
   capabilities: ['trading', 'monitoring']
 }
 
-// ❌ Éviter
+// ❌ Avoid
 var config = {name:'MyAgent',type:'autonomous'}
 ```
 
 #### Smart Contracts Solidity
 ```solidity
-// ✅ Bon
+// ✅ Good
 contract AgentRegistry {
     mapping(address => Agent) public agents;
     
@@ -77,14 +77,14 @@ npm run lint
 npm run build
 ```
 
-#### Couverture de Code
-- Maintenez une couverture > 80%
-- Ajoutez des tests pour les nouvelles fonctionnalités
-- Testez les cas d'erreur
+#### Code Coverage
+- Maintain coverage > 80%
+- Add tests for new features
+- Test error cases
 
-### 5. Messages de Commit
+### 5. Commit Messages
 
-Utilisez le format Conventional Commits :
+Use Conventional Commits format:
 
 ```
 type(scope): description
@@ -95,18 +95,18 @@ docs(readme): update installation instructions
 test(api): add integration tests for agent endpoints
 ```
 
-Types :
-- `feat` : Nouvelle fonctionnalité
-- `fix` : Correction de bug
-- `docs` : Documentation
-- `style` : Formatage (sans changement de code)
-- `refactor` : Refactoring
-- `test` : Ajout/modification de tests
-- `chore` : Maintenance
+Types:
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation
+- `style`: Formatting (no code change)
+- `refactor`: Refactoring
+- `test`: Adding/modifying tests
+- `chore`: Maintenance
 
-### 6. Configuration de Développement
+### 6. Development Setup
 
-#### Prérequis
+#### Prerequisites
 ```bash
 # Node.js 18+
 node --version
@@ -118,30 +118,30 @@ git config --global user.email "votre@email.com"
 
 #### Setup Local
 ```bash
-# Clone et setup
-git clone https://github.com/votre-fork/swarmnode-protocol.git
+# Clone and setup
+git clone https://github.com/your-fork/swarmnode-protocol.git
 cd swarmnode-protocol
 npm install
 
 # Configuration
 cp .env.example .env
-# Modifiez .env selon vos besoins
+# Modify .env according to your needs
 
-# Vérification
+# Verification
 npm run lint
 npm test
 ```
 
-### 7. Communauté
+### 7. Community
 
-- 💬 [Discord](https://discord.gg/swarmnode) - Discussion en temps réel
-- 🐦 [Twitter](https://twitter.com/swarmnodeai) - Actualités
-- 📧 Email : contribute@swarmnode.ai
+- 💬 [Discord](https://discord.gg/swarmnode) - Real-time discussion
+- 🐦 [Twitter](https://twitter.com/swarmnodeai) - News
+- 📧 Email: contribute@swarmnode.ai
 
-## 🎉 Merci !
+## 🎉 Thank You!
 
-Votre contribution compte ! Chaque ligne de code, chaque rapport de bug, chaque suggestion nous aide à construire l'avenir de l'IA décentralisée.
+Your contribution matters! Every line of code, every bug report, every suggestion helps us build the future of decentralized AI.
 
 ---
 
-*Ce guide est évolutif. N'hésitez pas à suggérer des améliorations !*
+*This guide is evolving. Feel free to suggest improvements!*

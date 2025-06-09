@@ -1,0 +1,147 @@
+{
+  "expo": {
+    "name": "SwarmNode Protocol",
+    "slug": "swarmnode-protocol",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0066FF"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.swarmnode.protocol",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This application uses the camera to scan QR codes and take photos.",
+        "NSPhotoLibraryUsageDescription": "This application accesses your photo library to select and upload images.",
+        "NSLocationWhenInUseUsageDescription": "This application uses location for region-specific features.",
+        "NSFaceIDUsageDescription": "This application uses Face ID for secure authentication.",
+        "NSContactsUsageDescription": "This application may access your contacts to facilitate sharing.",
+        "NSCalendarsUsageDescription": "This application may access your calendar to schedule notifications.",
+        "NSMicrophoneUsageDescription": "This application may use the microphone for voice features."
+      },
+      "associatedDomains": [
+        "applinks:swarmnode.protocol",
+        "applinks:app.swarmnode.protocol"
+      ],
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0066FF"
+      },
+      "package": "com.swarmnode.protocol",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.VIBRATE",
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT",
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "swarmnode.protocol"
+            },
+            {
+              "scheme": "https",
+              "host": "app.swarmnode.protocol"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow SwarmNode to use your camera to scan QR codes.",
+          "microphonePermission": "Allow SwarmNode to use the microphone for audio features.",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow SwarmNode to use your camera to scan barcodes and QR codes."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "L'application accède à vos photos pour vous permettre de partager du contenu.",
+          "cameraPermission": "L'application utilise la caméra pour prendre des photos à partager."
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow SwarmNode to use Face ID for secure authentication."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#0066FF",
+          "defaultChannel": "default",
+          "sounds": [
+            "./assets/sounds/notification.wav"
+          ]
+        }
+      ],
+      [
+        "expo-secure-store"
+      ],
+      [
+        "expo-font"
+      ]
+    ],
+    "scheme": "swarmnode",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
+    },
+    "owner": "swarmnode-protocol",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/your-eas-project-id"
+    }
+  }
+}
