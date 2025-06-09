@@ -1,189 +1,208 @@
-# SwarmNode Protocol 🔴
+# SwarmNode Protocol
 
-*Autonomous AI Agent Infrastructure on Avalanche*
+*Cross-Subnet AI Agent Infrastructure on Avalanche*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Avalanche](https://img.shields.io/badge/Avalanche-E84142.svg)](https://www.avax.network/)
 [![Solidity](https://img.shields.io/badge/Solidity-363636.svg)](https://soliditylang.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC.svg)](https://www.typescriptlang.org/)
 
-## 🌟 Vision
+## Vision
 
-SwarmNode Protocol revolutionizes decentralized AI by creating an autonomous network of intelligent agents on Avalanche blockchain. Our protocol enables AI agents to interact, collaborate, and execute complex tasks while maintaining full decentralization and transparency.
+SwarmNode Protocol creates the first decentralized AI agent infrastructure enabling seamless interaction between Avalanche C-Chain mainnet and custom subnets. Our protocol allows AI agents to operate across multiple blockchain environments, bridging different subnet ecosystems through intelligent cross-chain communication.
 
-## 🚀 Key Features
+## Core Features
 
-- **🤖 Autonomous AI Agents**: Deploy and manage self-governing AI agents on-chain
-- **🔗 Inter-Agent Communication**: Secure, efficient communication between agents
-- **⚡ Avalanche Native**: Built specifically for Avalanche's high-performance subnet architecture
-- **💰 Economic Incentives**: Token-based reward system for agent performance
-- **🔐 Cryptographic Security**: Zero-knowledge proofs for agent authenticity
-- **📊 Real-time Analytics**: Comprehensive monitoring and performance metrics
+- **Cross-Subnet Agent Deployment**: Deploy AI agents that operate across mainnet and subnets
+- **Inter-Subnet Communication**: Secure message passing and state synchronization between subnets
+- **Subnet-Specific Optimization**: Agents adapt their behavior based on subnet characteristics
+- **Cross-Chain Asset Management**: Agents can manage assets across different Avalanche networks
+- **Decentralized Agent Coordination**: Autonomous coordination without centralized control
+- **Economic Incentive Alignment**: Token rewards for cross-subnet operations and bridge facilitation
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    SwarmNode Protocol                        │
+│                SwarmNode Cross-Subnet Protocol               │
 ├─────────────────┬─────────────────┬─────────────────────────┤
-│   Agent Layer   │  Consensus Layer │   Infrastructure Layer  │
+│   C-Chain       │   Custom        │   Cross-Chain           │
+│   (Mainnet)     │   Subnets       │   Infrastructure        │
 │                 │                 │                         │
-│ • AI Agents     │ • Validator     │ • Smart Contracts      │
-│ • Behaviors     │   Network       │ • Storage Layer        │
-│ • Tasks         │ • Consensus     │ • Communication Bus     │
-│ • Rewards       │   Mechanism     │ • Monitoring System     │
+│ • Agent         │ • Subnet-       │ • Bridge Contracts      │
+│   Registry      │   Specific      │ • Message Relayers      │
+│ • Token         │   Agents        │ • State Synchronizers   │
+│   Management    │ • Local         │ • Validator Network     │
+│ • Governance    │   Consensus     │ • Cross-Chain Oracle    │
 └─────────────────┴─────────────────┴─────────────────────────┘
 ```
 
-## 📁 Project Structure
+## Technical Implementation
+
+### Cross-Subnet Communication
+- **Avalanche Warp Messaging**: Native cross-subnet communication protocol
+- **Agent State Synchronization**: Real-time state updates across networks
+- **Cross-Chain Asset Bridges**: Seamless asset transfers between subnets
+
+### Agent Deployment Strategy
+- **Mainnet Coordination Hub**: Central registry and governance on C-Chain
+- **Subnet-Specific Execution**: Optimized agents for specific subnet use cases
+- **Dynamic Load Balancing**: Automatic workload distribution across subnets
+
+## Project Structure
 
 ```
 swarmnode-protocol/
-├── contracts/              # Smart contracts
-│   ├── AgentRegistry.sol   # Agent deployment & management
-│   ├── SwarmToken.sol      # Protocol token
-│   ├── TaskManager.sol     # Task coordination
-│   └── governance/         # DAO governance contracts
-├── src/                    # Core protocol implementation
-├── website/                # Official website (Next.js)
-├── frontend/               # Web interface (React + Vite)
-├── examples/               # Example AI agents
-│   └── agents/             # Pre-built agent templates
-├── scripts/                # Development & deployment scripts
-├── docs/                   # Technical documentation
-└── .github/                # CI/CD workflows
+├── contracts/                          # Smart contracts
+│   ├── AgentRegistry.sol               # Agent deployment & management
+│   ├── SwarmToken.sol                  # Protocol token
+│   ├── TaskManager.sol                 # Task coordination
+│   ├── CrossSubnetBridge.sol           # Cross-subnet communication bridge
+│   ├── CrossSubnetAgent.sol            # Base agent for cross-subnet operations
+│   ├── interfaces/
+│   │   └── ITeleporterMessenger.sol    # Avalanche Teleporter interfaces
+│   └── governance/                     # DAO governance contracts
+├── src/                                # Core protocol implementation
+├── examples/                           # Example AI agents
+│   └── agents/
+│       ├── CrossSubnetDeFiAgent.ts     # DeFi arbitrage agent
+│       ├── DeFiTradingAgent.ts         # Single-subnet DeFi trader
+│       └── NFTMonitoringAgent.ts       # NFT market monitor
+├── scripts/
+│   ├── deploy-cross-subnet.ts          # Cross-subnet deployment script
+│   └── deploy.ts                       # Standard deployment
+├── deployments/                        # Deployment configurations
+└── docs/                               # Technical documentation
 ```
 
-## 📋 Roadmap
+## Use Cases
 
-### Phase 1: Foundation (Q2 2025) ✅
-- [x] Core smart contract architecture
-- [x] Agent deployment framework
-- [x] Basic inter-agent communication
-- [x] **Clean open source repository** (June 2025)
+### Cross-Subnet DeFi Arbitrage
+- **Automated arbitrage** between DEXs across different Avalanche subnets
+- **Price discovery** and liquidity optimization across subnet ecosystems
+- **Risk management** through diversified subnet exposure
 
-### Phase 2: Expansion (Q3 2025)
-- [ ] Mainnet deployment on Avalanche
-- [ ] Advanced AI agent capabilities
-- [ ] Cross-subnet communication
-- [ ] Developer SDK and tools
-- [ ] Community governance implementation
+### Subnet-Specific Gaming Agents
+- **Asset management** for gaming tokens across gaming-focused subnets
+- **Cross-subnet tournaments** and reward distribution
+- **NFT trading** optimization across multiple gaming ecosystems
 
-### Phase 3: Ecosystem (Q4 2025)
-- [ ] Third-party integrations
-- [ ] Agent marketplace
-- [ ] Advanced analytics dashboard
-- [ ] Mobile application
+### Enterprise Subnet Orchestration
+- **Multi-tenant operations** across private and public subnets
+- **Compliance automation** for regulated subnet environments
+- **Resource optimization** based on subnet-specific costs and performance
 
-## 🛠️ Quick Start
+### Cross-Chain Yield Farming
+- **Automated yield optimization** across different subnet DeFi protocols
+- **Risk-adjusted portfolio management** across subnet ecosystems
+- **Liquidity provision** optimization using cross-subnet intelligence
 
-### Prerequisites
+## Quick Start
 
-```bash
-node >= 16.0.0
-npm >= 8.0.0
-avalanche-cli >= 1.0.0
-```
-
-### Installation
-
+### 1. Deploy Core Infrastructure
 ```bash
 # Clone the repository
-git clone https://github.com/swarmnode/protocol.git
+git clone https://github.com/swarmnode/protocol
 cd protocol
 
 # Install dependencies
 npm install
 
-# Configure environment
-cp .env.example .env
-# Edit .env with your Avalanche node credentials
-
-# Deploy to testnet
-npm run deploy:testnet
+# Deploy cross-subnet infrastructure
+npx hardhat run scripts/deploy-cross-subnet.ts --network avalanche
 ```
 
-### Deploy Your First Agent
+### 2. Configure Subnets
+```bash
+# Add supported subnets (requires admin privileges)
+npx hardhat run scripts/configure-subnets.ts --network avalanche
+```
 
+### 3. Deploy Your First Cross-Subnet Agent
 ```typescript
-import { SwarmNode, AgentConfig } from '@swarmnode/sdk';
+import { CrossSubnetDeFiAgent } from './examples/agents/CrossSubnetDeFiAgent';
 
-const config: AgentConfig = {
-  name: "DataAnalyzer",
-  capabilities: ["data_processing", "pattern_recognition"],
-  autonomyLevel: 0.8,
-  rewardThreshold: 100
-};
+const agent = new CrossSubnetDeFiAgent(
+    'https://api.avax.network/ext/bc/C/rpc',
+    {
+        'DEXALOT': 'https://subnets.avax.network/dexalot/rpc',
+        'DEGEN': 'https://subnets.avax.network/degen/rpc'
+    },
+    process.env.PRIVATE_KEY,
+    process.env.AGENT_CONTRACT_ADDRESS
+);
 
-const agent = await SwarmNode.deployAgent(config);
-console.log(`Agent deployed: ${agent.address}`);
+await agent.initialize();
+await agent.monitorArbitrage();
 ```
 
-## 💡 Use Cases
+## Roadmap
 
-### 🔍 Decentralized Research
-AI agents collaborate to conduct research, validate findings, and publish results on-chain.
+### Phase 1: Foundation (Q2 2025)
+- [x] Core cross-subnet infrastructure
+- [x] Teleporter integration for Avalanche Warp Messaging
+- [x] Base agent contracts with cross-subnet capabilities
+- [x] Example DeFi arbitrage agent
 
-### 📈 Autonomous Trading
-Intelligent agents execute trading strategies across DeFi protocols with risk management.
+### Phase 2: Expansion (Q2/3 2025)
+- [ ] Integration with major Avalanche subnets (Dexalot, DeFiKingdoms, etc.)
+- [ ] Advanced agent coordination protocols
+- [ ] Cross-subnet governance mechanisms
+- [ ] Agent marketplace and discovery
 
-### 🎯 Content Moderation
-Distributed AI agents moderate content across platforms with community governance.
+### Phase 3: Ecosystem (Q3 2025)
+- [ ] Enterprise subnet partnerships
+- [ ] Advanced analytics and monitoring
+- [ ] Mobile subnet management interface
+- [ ] Third-party developer tools and SDKs
 
-### 🌐 Network Optimization
-Agents continuously optimize network performance and resource allocation.
+## Technical Specifications
 
-## 🏆 Team
+### Supported Avalanche Subnets
+- **Dexalot**: Decentralized order book exchange
+- **DeFiKingdoms**: Gaming and DeFi ecosystem
+- **Degen Chain**: High-throughput gaming subnet
+- **Beam**: Subnet focused on gaming infrastructure
+- **WAGMI**: Gaming and entertainment subnet
 
-**Core Development Team**
-- Lead Architect: Anonymous (Avalanche Foundation alumnus)
-- Smart Contract Lead: 5+ years DeFi experience
-- AI Research Lead: PhD in Machine Learning, ex-OpenAI
-- Infrastructure Lead: Former AWS Solutions Architect
+### Cross-Subnet Communication
+- **Avalanche Warp Messaging**: Native protocol for secure cross-subnet communication
+- **Teleporter Protocol**: Message relay system with guaranteed delivery
+- **State Synchronization**: Real-time agent state updates across networks
 
-## 📊 Tokenomics
+### Agent Capabilities
+- **Multi-Subnet Deployment**: Single agent operating across multiple environments
+- **Adaptive Execution**: Behavior optimization based on subnet characteristics
+- **Economic Optimization**: Cost-effective execution across different fee structures
+- **Risk Management**: Diversified operations across subnet ecosystems
 
-**SWARM Token (Total Supply: 1,000,000,000)**
+## Documentation
 
-- 30% - Agent Rewards & Incentives
-- 25% - Development Team (4-year vesting)
-- 20% - Community Treasury
-- 15% - Strategic Partners
-- 10% - Private Sale (completed)
-
-## 🔐 Security
-
-- **Audited by**: Certik & Quantstamp (reports pending)
-- **Bug Bounty**: Up to $100,000 for critical vulnerabilities
-- **Multi-sig**: 5/7 multi-signature for protocol upgrades
-- **Timelock**: 48-hour delay for critical parameter changes
-
-## 📚 Documentation
-
-- [Technical Whitepaper](./docs/whitepaper.md)
-- [Smart Contract Documentation](./docs/contracts.md)
-- [API Reference](./docs/api.md)
+- [Technical Architecture](./docs/whitepaper.md)
+- [Smart Contract API](./docs/contracts.md)
 - [Agent Development Guide](./docs/agent-guide.md)
+- [Cross-Subnet Integration](./docs/api.md)
 
-## 🌍 Community
+## Community
 
-- **Discord**: [discord.gg/swarmnode](https://discord.gg/swarmnode)
-- **Twitter**: [@SwarmNodeAI](https://twitter.com/SwarmNodeAI)
-- **Telegram**: [t.me/swarmnode](https://t.me/swarmnode)
-- **Medium**: [swarmnode.medium.com](https://swarmnode.medium.com)
+- **GitHub**: [github.com/swarmnode/protocol](https://github.com/swarmnode/protocol)
+- **Discord**: Community discussions and developer support
+- **Twitter**: [@SwarmNodeProtocol](https://twitter.com/SwarmNodeProtocol)
+- **Documentation**: [docs.swarmnode.protocol](https://docs.swarmnode.protocol)
 
-## 📄 License
+## Security
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Smart contract audits by leading security firms
+- Bug bounty program for vulnerability disclosure
+- Multi-signature governance with timelock mechanisms
+- Comprehensive testing across all supported subnets
 
-## ⚠️ Disclaimer
+## License
 
-SwarmNode Protocol is experimental software. Use at your own risk. Never invest more than you can afford to lose.
+MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-*"Building the future of decentralized intelligence, one agent at a time."*
-
-**SwarmNode Protocol Team**
+**SwarmNode Protocol**: Building the first cross-subnet AI agent infrastructure on Avalanche.
 
 

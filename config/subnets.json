@@ -1,0 +1,121 @@
+{
+  "networks": {
+    "avalanche-mainnet": {
+      "chainId": "0xa86a",
+      "name": "Avalanche C-Chain",
+      "rpc": "https://api.avax.network/ext/bc/C/rpc",
+      "teleporter": "0x253b2784c75e510dD0fF1da844684a1aC0aa5fcf",
+      "type": "mainnet"
+    }
+  },
+  "subnets": {
+    "dexalot": {
+      "chainId": "0x114C6A90",
+      "name": "Dexalot Subnet",
+      "rpc": "https://subnets.avax.network/dexalot/mainnet/rpc",
+      "teleporter": "0x253b2784c75e510dD0fF1da844684a1aC0aa5fcf",
+      "bridgeContract": null,
+      "type": "dex",
+      "features": ["orderbook", "spot_trading", "derivatives"],
+      "gasToken": "ALOT"
+    },
+    "defikingdoms": {
+      "chainId": "0x1A6A7",
+      "name": "DeFi Kingdoms Subnet",
+      "rpc": "https://subnets.avax.network/defi-kingdoms/dfk-chain/rpc",
+      "teleporter": "0x253b2784c75e510dD0fF1da844684a1aC0aa5fcf",
+      "bridgeContract": null,
+      "type": "gaming",
+      "features": ["gaming", "nft", "defi", "governance"],
+      "gasToken": "JEWEL"
+    },
+    "degen": {
+      "chainId": "0x27BC86AA",
+      "name": "Degen Chain",
+      "rpc": "https://rpc.degen.tips",
+      "teleporter": "0x253b2784c75e510dD0fF1da844684a1aC0aa5fcf",
+      "bridgeContract": null,
+      "type": "gaming",
+      "features": ["high_throughput", "gaming", "social"],
+      "gasToken": "DEGEN"
+    },
+    "beam": {
+      "chainId": "0x10F7C",
+      "name": "Beam Subnet",
+      "rpc": "https://subnets.avax.network/beam/mainnet/rpc",
+      "teleporter": "0x253b2784c75e510dD0fF1da844684a1aC0aa5fcf",
+      "bridgeContract": null,
+      "type": "gaming",
+      "features": ["gaming_infrastructure", "assets", "interoperability"],
+      "gasToken": "BEAM"
+    },
+    "wagmi": {
+      "chainId": "0x3799",
+      "name": "WAGMI Subnet",
+      "rpc": "https://subnets.avax.network/wagmi/wagmi-chain-testnet/rpc",
+      "teleporter": "0x253b2784c75e510dD0fF1da844684a1aC0aa5fcf",
+      "bridgeContract": null,
+      "type": "gaming",
+      "features": ["gaming", "entertainment", "nft_gaming"],
+      "gasToken": "WGM"
+    }
+  },
+  "agents": {
+    "templates": {
+      "defi_arbitrage": {
+        "name": "Cross-Subnet DeFi Arbitrage Agent",
+        "description": "Monitors price differences across subnet DEXs and executes arbitrage",
+        "supportedSubnets": ["dexalot", "defikingdoms"],
+        "minProfitThreshold": 0.5,
+        "maxPositionSize": 10000,
+        "contractTemplate": "CrossSubnetDeFiAgent"
+      },
+      "gaming_asset_manager": {
+        "name": "Gaming Asset Management Agent",
+        "description": "Optimizes gaming asset portfolios across gaming subnets",
+        "supportedSubnets": ["defikingdoms", "beam", "wagmi"],
+        "rebalanceFrequency": 3600,
+        "riskLevel": "medium",
+        "contractTemplate": "CrossSubnetGamingAgent"
+      },
+      "liquidity_optimizer": {
+        "name": "Cross-Subnet Liquidity Optimizer",
+        "description": "Provides optimal liquidity across different subnet DEXs",
+        "supportedSubnets": ["dexalot", "defikingdoms"],
+        "targetAPR": 15,
+        "maxSlippage": 0.5,
+        "contractTemplate": "CrossSubnetLiquidityAgent"
+      }
+    }
+  },
+  "deployment": {
+    "mainnet": {
+      "crossSubnetBridge": null,
+      "agentRegistry": null,
+      "swarmToken": null,
+      "governance": null
+    },
+    "subnets": {
+      "dexalot": {
+        "agentFactory": null,
+        "localBridge": null
+      },
+      "defikingdoms": {
+        "agentFactory": null,
+        "localBridge": null
+      },
+      "degen": {
+        "agentFactory": null,
+        "localBridge": null
+      },
+      "beam": {
+        "agentFactory": null,
+        "localBridge": null
+      },
+      "wagmi": {
+        "agentFactory": null,
+        "localBridge": null
+      }
+    }
+  }
+}
