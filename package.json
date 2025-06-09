@@ -1,0 +1,63 @@
+{
+  "name": "@swarmnode/protocol",
+  "version": "0.3.2",
+  "description": "Autonomous AI Agent Infrastructure on Avalanche",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "hardhat compile && tsc",
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "deploy:testnet": "hardhat run scripts/deploy.ts --network fuji",
+    "deploy:mainnet": "hardhat run scripts/deploy.ts --network avalanche",
+    "verify": "hardhat verify --network avalanche",
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write .",
+    "start:node": "hardhat node",
+    "clean": "hardhat clean && rm -rf dist"
+  },
+  "keywords": [
+    "avalanche",
+    "ai",
+    "blockchain",
+    "defi",
+    "agents",
+    "smart-contracts",
+    "web3"
+  ],
+  "author": "SwarmNode Protocol Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swarmnode/protocol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/swarmnode/protocol/issues"
+  },
+  "homepage": "https://swarmnode.ai",
+  "dependencies": {
+    "@avalanche-js/avalanche": "^1.7.10",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.17.1",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.2",
+    "@typechain/ethers-v5": "^10.2.1",
+    "@typechain/hardhat": "^6.1.6",
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
+    "prettier": "^3.0.0",
+    "solidity-coverage": "^0.8.4",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
