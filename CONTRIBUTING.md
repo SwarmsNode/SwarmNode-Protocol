@@ -59,6 +59,7 @@ contract AgentRegistry {
 }
 ```
 
+
 ### 4. Tests
 
 #### Avant de soumettre

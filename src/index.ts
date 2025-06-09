@@ -17,6 +17,7 @@ import {
   TaskStatus
 } from './types';
 
+
 export class SwarmNodeSDK {
   private config: SwarmNodeConfig;
   private provider: ethers.providers.Provider;

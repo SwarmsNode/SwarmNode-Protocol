@@ -13,6 +13,7 @@ import "./AgentRegistry.sol";
 contract TaskManager is Ownable, ReentrancyGuard {
     AgentRegistry public immutable agentRegistry;
     SwarmToken public immutable swarmToken;
+   
     
     struct Task {
         uint256 id;

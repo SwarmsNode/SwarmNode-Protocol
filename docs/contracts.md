@@ -15,6 +15,7 @@ SwarmNode Protocol consists of three main smart contracts deployed on Avalanche:
 - **AgentRegistry**: `TBD` (Deploying June 15, 2025)
 - **TaskManager**: `TBD` (Deploying June 15, 2025)
 
+
 ### Testnet (Fuji)
 - **SwarmToken**: `0x742F35Cc6Ab88F532a8bfC3B8a6e7D4c5E8F9A12`
 - **AgentRegistry**: `0x8E3F7D8b2A1C4B5E6F9A0B2C3D4E5F6A7B8C9D0E`

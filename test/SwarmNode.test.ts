@@ -11,6 +11,7 @@ describe("SwarmNode Protocol", function () {
   let user1: SignerWithAddress;
   let user2: SignerWithAddress;
 
+  
   beforeEach(async function () {
     [owner, user1, user2] = await ethers.getSigners();
 

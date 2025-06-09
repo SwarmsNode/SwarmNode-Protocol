@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
 
+
 /**
  * @title SwarmNodeGovernor
  * @dev Governance contract for SwarmNode Protocol

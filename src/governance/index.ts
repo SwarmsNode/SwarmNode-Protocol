@@ -20,6 +20,7 @@ export interface ProposalData {
   executedAt?: Date;
 }
 
+
 export enum ProposalStatus {
   PENDING = 'PENDING',
   ACTIVE = 'ACTIVE',

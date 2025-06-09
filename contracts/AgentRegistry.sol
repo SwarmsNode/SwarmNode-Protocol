@@ -13,6 +13,7 @@ import "./SwarmToken.sol";
  */
 contract AgentRegistry is Ownable, ReentrancyGuard, Pausable {
     SwarmToken public immutable swarmToken;
+ 
     
     // Agent structure
     struct Agent {

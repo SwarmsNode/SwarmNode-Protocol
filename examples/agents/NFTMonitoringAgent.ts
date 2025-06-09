@@ -25,6 +25,7 @@ export class NFTMonitoringAgent extends Agent {
     this.rarityDatabase = new Map();
   }
 
+  
   /**
    * Ajoute une collection à surveiller
    */

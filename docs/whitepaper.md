@@ -18,6 +18,7 @@ SwarmNode Protocol introduces a revolutionary framework for deploying and orches
 8. [Technical Specifications](#technical-specifications)
 9. [Future Roadmap](#future-roadmap)
 
+
 ## 1. Introduction
 
 ### 1.1 Problem Statement

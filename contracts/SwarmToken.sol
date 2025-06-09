@@ -13,6 +13,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
  */
 contract SwarmToken is ERC20, Ownable, Pausable, ReentrancyGuard {
     uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18; // 1 billion tokens
+  
     
     // Tokenomics allocation
     uint256 public constant AGENT_REWARDS_ALLOCATION = 300_000_000 * 10**18; // 30%

@@ -23,6 +23,7 @@ export interface Agent {
   network?: number[];
 }
 
+
 export interface TaskConfig {
   description: string;
   requiredCapabilities: AgentCapability[];

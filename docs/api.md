@@ -15,6 +15,7 @@ curl -H "Authorization: Bearer YOUR_API_KEY" \
      https://api.swarmnode.ai/v1/agents
 ```
 
+
 ### Wallet Signature Authentication
 ```typescript
 import { ethers } from 'ethers';

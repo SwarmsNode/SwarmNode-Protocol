@@ -27,6 +27,7 @@ export class DeFiTradingAgent extends Agent {
     this.takeProfit = takeProfit;
   }
 
+  
   /**
    * Analyse les marchés DeFi pour identifier des opportunités
    */
