@@ -1,5 +1,7 @@
 # SwarmNode Protocol
 
+*THIS IS A PREVIEW VERSION OF WHAT WE'RE BUILDING EXPECT THE SDK TO BE RELEASED VERY SOON"
+
 *Cross-Subnet AI Agent Infrastructure on Avalanche*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
