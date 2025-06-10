@@ -1,4 +1,4 @@
-import { Agent, Task, SwarmNodeSDK } from '../src/index';
+import { SwarmNodeSDK } from '../../src/index';
 
 /**
  * DeFi Trading Agent - Automated trading agent for DeFi protocols
@@ -29,7 +29,7 @@ export class DeFiTradingAgent extends Agent {
 
 
   /**
-   * Analyse les marchés DeFi pour identifier des opportunités
+   * Analyze DeFi markets to identify opportunities
    */
   async analyzeMarkets(): Promise<any[]> {
     const opportunities = [];
@@ -50,7 +50,7 @@ export class DeFiTradingAgent extends Agent {
           });
         }
       } catch (error) {
-        console.error(`Erreur lors de l'analyse de ${pair}:`, error);
+        console.error(`Error during analysis of ${pair}:`, error);
       }
     }
     
@@ -58,19 +58,19 @@ export class DeFiTradingAgent extends Agent {
   }
 
   /**
-   * Exécute une stratégie de trading
+   * Execute a trading strategy
    */
   async executeTradingStrategy(opportunity: any): Promise<boolean> {
     try {
-      // Vérification des conditions de sécurité
+      // Security conditions verification
       if (!this.validateTradingConditions(opportunity)) {
         return false;
       }
 
-      // Calcul de la taille de position
+      // Position size calculation
       const positionSize = this.calculatePositionSize(opportunity);
       
-      // Exécution du trade
+      // Trade execution
       const transaction = await this.executeTradeOnDEX({
         pair: opportunity.pair,
         action: opportunity.action,
@@ -78,24 +78,24 @@ export class DeFiTradingAgent extends Agent {
         maxSlippage: this.maxSlippage
       });
 
-      // Configuration des ordres stop-loss et take-profit
+      // Configuration of stop-loss and take-profit orders
       if (transaction.success) {
         await this.setStopLoss(transaction.txHash, this.stopLoss);
         await this.setTakeProfit(transaction.txHash, this.takeProfit);
         
-        console.log(`Trade exécuté avec succès: ${opportunity.pair} - ${opportunity.action}`);
+        console.log(`Trade executed successfully: ${opportunity.pair} - ${opportunity.action}`);
         return true;
       }
 
       return false;
     } catch (error) {
-      console.error('Erreur lors de l\'exécution du trade:', error);
+      console.error('Error during trade execution:', error);
       return false;
     }
   }
 
   /**
-   * Surveille les positions ouvertes
+   * Monitor open positions
    */
   async monitorPositions(): Promise<void> {
     const openPositions = await this.getOpenPositions();
@@ -104,17 +104,17 @@ export class DeFiTradingAgent extends Agent {
       const currentPrice = await this.getCurrentPrice(position.pair);
       const pnl = this.calculatePnL(position, currentPrice);
       
-      // Vérification des conditions de sortie
+      // Exit conditions verification
       if (this.shouldClosePosition(position, pnl)) {
         await this.closePosition(position);
-        console.log(`Position fermée: ${position.pair} - PnL: ${pnl.toFixed(4)}`);
+        console.log(`Position closed: ${position.pair} - PnL: ${pnl.toFixed(4)}`);
       }
     }
   }
 
-  // Méthodes utilitaires privées
+  // Private utility methods
   private async fetchMarketData(pair: string): Promise<any> {
-    // Implémentation de récupération des données de marché
+    // Market data retrieval implementation
     return {
       price: Math.random() * 100,
       volume: Math.random() * 1000000,
@@ -124,7 +124,7 @@ export class DeFiTradingAgent extends Agent {
   }
 
   private async calculateIndicators(marketData: any): Promise<any> {
-    // Calcul d'indicateurs techniques (RSI, MACD, Bollinger Bands, etc.)
+    // Technical indicators calculation (RSI, MACD, Bollinger Bands, etc.)
     const rsi = Math.random() * 100;
     const macd = Math.random() * 2 - 1;
     
@@ -145,23 +145,23 @@ export class DeFiTradingAgent extends Agent {
   }
 
   private validateTradingConditions(opportunity: any): boolean {
-    // Validation des conditions de sécurité
+    // Security conditions validation
     return opportunity.confidence > 0.8 && 
            opportunity.riskLevel < 0.05 &&
            Math.abs(opportunity.expectedReturn) > 0.03;
   }
 
   private calculatePositionSize(opportunity: any): number {
-    // Calcul de la taille de position basé sur le risque
+    // Position size calculation based on risk
     const availableBalance = 1000; // USDC
-    const riskPerTrade = 0.02; // 2% du capital
+    const riskPerTrade = 0.02; // 2% of capital
     return availableBalance * riskPerTrade / opportunity.riskLevel;
   }
 
   private async executeTradeOnDEX(params: any): Promise<any> {
-    // Simulation d'exécution sur DEX
+    // DEX execution simulation
     return {
-      success: Math.random() > 0.1, // 90% de succès
+      success: Math.random() > 0.1, // 90% success rate
       txHash: '0x' + Math.random().toString(16).substr(2, 40),
       executedPrice: Math.random() * 100,
       executedAmount: params.amount
@@ -169,17 +169,17 @@ export class DeFiTradingAgent extends Agent {
   }
 
   private async setStopLoss(txHash: string, stopLossPercent: number): Promise<void> {
-    // Implémentation du stop-loss
-    console.log(`Stop-loss configuré à ${stopLossPercent * 100}% pour ${txHash}`);
+    // Stop-loss implementation
+    console.log(`Stop-loss configured at ${stopLossPercent * 100}% for ${txHash}`);
   }
 
   private async setTakeProfit(txHash: string, takeProfitPercent: number): Promise<void> {
-    // Implémentation du take-profit
-    console.log(`Take-profit configuré à ${takeProfitPercent * 100}% pour ${txHash}`);
+    // Take-profit implementation
+    console.log(`Take-profit configured at ${takeProfitPercent * 100}% for ${txHash}`);
   }
 
   private async getOpenPositions(): Promise<any[]> {
-    // Récupération des positions ouvertes
+    // Open positions retrieval
     return [
       {
         pair: 'AVAX/USDC',
@@ -192,7 +192,7 @@ export class DeFiTradingAgent extends Agent {
   }
 
   private async getCurrentPrice(pair: string): Promise<number> {
-    // Récupération du prix actuel
+    // Current price retrieval
     return Math.random() * 100;
   }
 
@@ -209,12 +209,12 @@ export class DeFiTradingAgent extends Agent {
   }
 
   private async closePosition(position: any): Promise<void> {
-    // Fermeture de la position
-    console.log(`Fermeture de la position ${position.pair}`);
+    // Position closing
+    console.log(`Closing position ${position.pair}`);
   }
 
   /**
-   * Méthode principale d'exécution de l'agent
+   * Main agent execution method
    */
   async execute(task: Task): Promise<boolean> {
     try {
@@ -235,31 +235,31 @@ export class DeFiTradingAgent extends Agent {
           return true;
 
         default:
-          console.log(`Type de tâche non supporté: ${task.type}`);
+          console.log(`Unsupported task type: ${task.type}`);
           return false;
       }
     } catch (error) {
-      console.error('Erreur lors de l\'exécution de la tâche:', error);
+      console.error('Error during task execution:', error);
       task.error = error.message;
       return false;
     }
   }
 }
 
-// Exemple d'utilisation
+// Usage example
 export const createDeFiTradingAgent = async (sdk: SwarmNodeSDK) => {
   const agent = new DeFiTradingAgent(sdk);
   
-  // Déploiement sur la blockchain
+  // Blockchain deployment
   const deploymentResult = await agent.deploy({
     gasLimit: 500000,
     gasPrice: '25000000000' // 25 gwei
   });
 
   if (deploymentResult.success) {
-    console.log(`Agent DeFi déployé avec succès: ${deploymentResult.agentId}`);
+    console.log(`DeFi agent deployed successfully: ${deploymentResult.agentId}`);
     
-    // Configuration des tâches périodiques
+    // Periodic tasks configuration
     await agent.scheduleTask({
       type: 'market_analysis',
       interval: 300000, // 5 minutes
@@ -274,6 +274,6 @@ export const createDeFiTradingAgent = async (sdk: SwarmNodeSDK) => {
 
     return agent;
   } else {
-    throw new Error('Échec du déploiement de l\'agent DeFi');
+    throw new Error('DeFi agent deployment failed');
   }
 };

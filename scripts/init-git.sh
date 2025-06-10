@@ -1,23 +1,23 @@
 #!/bin/bash
 
-echo "🔧 Initialisation Git pour GitHub..."
+echo "🔧 Git initialization for GitHub..."
 
-# Couleurs
+# Colors
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-# Vérifier si c'est déjà un repo Git
+# Check if it's already a Git repo
 if [ ! -d ".git" ]; then
     git init
-    echo "📁 Repository Git initialisé"
+    echo "📁 Git repository initialized"
 fi
 
-# Ajouter tous les fichiers
+# Add all files
 git add .
 
-# Premier commit
+# First commit
 git commit -m "🎉 Initial commit: SwarmNode Protocol
 
 ✨ Features:
@@ -48,13 +48,13 @@ git commit -m "🎉 Initial commit: SwarmNode Protocol
 - Community contributions
 - Production deployment"
 
-echo "✅ Projet prêt pour GitHub !"
+echo "✅ Project ready for GitHub !"
 echo ""
-echo "🚀 Prochaines étapes :"
-echo "1. Créez un nouveau repository sur GitHub"
-echo "2. ${BLUE}git remote add origin https://github.com/votre-username/swarmnode-protocol.git${NC}"
+echo "🚀 Next steps:"
+echo "1. Create a new repository on GitHub"
+echo "2. ${BLUE}git remote add origin https://github.com/your-username/swarmnode-protocol.git${NC}"
 echo "3. ${BLUE}git branch -M main${NC}"
 echo "4. ${BLUE}git push -u origin main${NC}"
 echo ""
-echo "💡 Pour démarrer le développement :"
+echo "💡 To start development:"
 echo "  ${BLUE}./scripts/dev.sh${NC}"

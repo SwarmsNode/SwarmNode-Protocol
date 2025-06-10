@@ -31,7 +31,7 @@ export class AdvancedDeFiAgent extends Agent {
   }
 
   /**
-   * Utilise GPT-4 pour analyser les données de marché
+   * Uses GPT-4 to analyze market data
    */
   async analyzeMarketWithAI(marketData: any): Promise<{
     action: 'buy' | 'sell' | 'hold';
@@ -92,23 +92,23 @@ export class AdvancedDeFiAgent extends Agent {
   }
 
   /**
-   * Exécute une stratégie de trading basée sur l'IA
+   * Executes an AI-based trading strategy
    */
   async executeAIStrategy(pair: string): Promise<boolean> {
     try {
-      // Collecte des données de marché
+      // Market data collection
       const marketData = await this.fetchMarketData(pair);
       
-      // Analyse IA
+      // AI Analysis
       const aiAnalysis = await this.analyzeMarketWithAI(marketData);
       
-      // Vérification des conditions de sécurité
+      // Security conditions check
       if (aiAnalysis.confidence < 70 || aiAnalysis.riskLevel > 80) {
         console.log(`Skipping trade for ${pair}: Low confidence or high risk`);
         return false;
       }
 
-      // Exécution du trade
+      // Trade execution
       if (aiAnalysis.action === 'buy' || aiAnalysis.action === 'sell') {
         const success = await this.executeTrade(
           pair,
@@ -127,7 +127,7 @@ export class AdvancedDeFiAgent extends Agent {
             reasoning: aiAnalysis.reasoning
           });
 
-          // Rapport à la blockchain
+          // Report to blockchain
           await this.reportTradeToBlockchain(pair, aiAnalysis);
         }
 
@@ -166,7 +166,7 @@ export class AdvancedDeFiAgent extends Agent {
   }
 
   /**
-   * Calcule le montant du trade basé sur la confiance et le risque
+   * Calculate trade amount based on confidence and risk
    */
   private calculateTradeAmount(confidence: number, riskLevel: number): number {
     const baseAmount = 100; // Base amount in tokens
@@ -177,7 +177,7 @@ export class AdvancedDeFiAgent extends Agent {
   }
 
   /**
-   * Rapport des trades à la blockchain
+   * Report trades to blockchain
    */
   private async reportTradeToBlockchain(pair: string, analysis: any): Promise<void> {
     try {
@@ -198,13 +198,13 @@ export class AdvancedDeFiAgent extends Agent {
   }
 
   /**
-   * Obtient les performances de l'agent
+   * Get agent performance metrics
    */
   getPerformanceMetrics() {
     const totalTrades = this.tradingHistory.length;
     const profitableTrades = this.tradingHistory.filter(trade => {
-      // Logique simplifiée pour calculer la profitabilité
-      return trade.action === 'buy' ? true : false; // À implémenter correctement
+      // Simplified logic to calculate profitability
+      return trade.action === 'buy' ? true : false; // To be implemented correctly
     }).length;
 
     return {

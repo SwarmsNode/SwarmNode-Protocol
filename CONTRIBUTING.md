@@ -22,7 +22,7 @@ Thank you for your interest in contributing to SwarmNode! This guide will help y
 6. **Push** to your fork
 7. **Create** a Pull Request
 
-### 3. Standarts code
+### 3. Code Standards
 
 #### Naming Conventions
 - Variables: `camelCase`
@@ -62,12 +62,12 @@ contract AgentRegistry {
 
 ### 4. Tests
 
-#### before pushing
+#### Before pushing
 ```bash
-# tests
+# Tests
 npm test
 
-# integration
+# Integration tests
 npm run test:integration
 
 # Linting
@@ -111,7 +111,7 @@ Types:
 # Node.js 18+
 node --version
 
-# Git configuré
+# Git configured
 git config --global user.name "name"
 git config --global user.email "your@email.com"
 ```
